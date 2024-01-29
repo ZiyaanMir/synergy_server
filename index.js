@@ -1,8 +1,10 @@
+import { env } from 'process';
 const express = require('express');
 const app = express();
 const http = require('http');
 const { Server } = require("socket.io");
 const cors = require('cors');
+const { env } = require('process');
 
 app.use(cors());
 const server = http.createServer(app);
@@ -38,4 +40,4 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(8080, () => {console.log('listening on *:8080')});
+server.listen(env.PORT, () => {console.log('listening on *:8080')});
